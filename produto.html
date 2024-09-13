@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Produto</title>
+    <link rel="icon" href="img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="style-product.css">
+    <script src="jquery.js"></script>
+    <meta name="description" content="Detalhes do produto na Minha Loja">
+    <meta name="keywords" content="produto, comprar, detalhes, loja online">
+</head>
+<body>
+
+<!-- Menu Nav padrão -->
+<nav class="navbar">
+    <div class="nav-left">
+        <input type="text" placeholder="Pesquisar..." id="search-input">
+    </div>
+    <div class="nav-center">
+        <ul class="nav-menu desktop-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="checkout.html">Carrinho</a></li>
+            <li><a href="quem-somos.html">Quem somos?</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+        <button id="mobile-menu-btn" class="mobile-menu-btn">&#9776;</button>
+        <ul class="nav-menu mobile-menu">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="checkout.html">Carrinho</a></li>
+            <li><a href="quem-somos.php">Quem somos?</a></li>
+            <li><a href="contato.php">Contato</a></li>
+        </ul>
+    </div>
+    <div class="nav-right">
+        <a href="checkout.html" class="cart-button">
+            <img style="width:45px; height: 45px;" src="img/sacola.png" alt="Carrinho">
+        </a>
+    </div>
+</nav>
+
+<div class="product-section">
+    <div class="product-image-container">
+        <div class="image-slider">
+            <img src="img/modelo.png" alt="Produto 1" class="product-image">
+            <img src="img/modelo.png" alt="Produto 2" class="product-image">
+            <img src="img/modelo.png" alt="Produto 3" class="product-image">
+        </div>
+        <button class="prev">⟨</button>
+        <button class="next">⟩</button>
+    </div>
+    <div class="product-details">
+        <h1 class="product-title">Camiseta Masculina Confort Fit</h1>
+        <p class="product-price">R$ 99,99</p>
+        
+        <!-- Opções de tamanho e tecido -->
+        <div class="product-options">
+            <label for="size">Tamanho:</label>
+            <select id="size" name="size">
+                <option value="p">P</option>
+                <option value="m">M</option>
+                <option value="g">G</option>
+                <option value="gg">GG</option>
+                <option value="xg">XG</option>
+            </select>
+
+            <label for="fabric">Tipo de Tecido:</label>
+            <select id="fabric" name="fabric">
+                <option value="algodao">Algodão 100%</option>
+                <option value="poliester">Poliéster</option>
+                <option value="misto">Misto (Algodão/Poliéster)</option>
+            </select>
+        </div>
+
+        <button class="buy-now-button">Comprar Agora</button>
+        <button class="add-to-cart-button">Adicionar ao Carrinho</button>
+        
+        <div class="tabs">
+            <button class="tab-button active" data-tab="description">Descrição</button>
+            <button class="tab-button" data-tab="specifications">Especificações</button>
+            <button class="tab-button" data-tab="reviews">Avaliações</button>
+        </div>
+        <div class="tab-content" id="description">
+            <p>Camiseta Masculina Confort Fit:</p>
+            <ul>
+                <li>Feita em tecido 100% algodão, proporcionando maciez e conforto durante todo o dia.</li>
+                <li>Modelagem Confort Fit que oferece um caimento mais solto e confortável, ideal para o uso diário.</li>
+                <li>Disponível em diversas cores e tamanhos, se adaptando a diferentes estilos e ocasiões.</li>
+                <li>Estampa minimalista que combina com diferentes peças, desde jeans até bermudas.</li>
+                <li>Acabamento reforçado nas costuras, garantindo maior durabilidade ao produto.</li>
+            </ul>
+        </div>
+        <div class="tab-content" id="specifications" style="display:none;">
+            <p>Ficha Técnica:</p>
+            <ul>
+                <li>Material: 100% Algodão</li>
+                <li>Modelagem: Confort Fit</li>
+                <li>Cores Disponíveis: Branco, Preto, Azul Marinho, Cinza Mescla</li>
+                <li>Tamanhos: P, M, G, GG, XG</li>
+                <li>Gola: Redonda</li>
+                <li>Tipo de Estampa: Minimalista</li>
+                <li>Lavagem: Lavar à máquina com água fria, secar à sombra</li>
+                <li>Indicação: Uso casual, ideal para o dia a dia</li>
+            </ul>
+        </div>
+        <div class="tab-content" id="reviews" style="display:none;">
+            <p>Avaliações dos clientes sobre o produto.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Seção de Mais Produtos -->
+<div class="more-products">
+    <h2>Mais Produtos para Você</h2>
+    <div class="product-grid">
+        <div class="product-item">
+            <img src="img/modelo.png" alt="Produto 1" class="product-thumb">
+            <p class="product-name">Camiseta Básica Branca</p>
+            <p class="product-price">R$ 49,99</p>
+        </div>
+        <div class="product-item">
+            <img src="img/modelo.png" alt="Produto 2" class="product-thumb">
+            <p class="product-name">Camiseta Estampada</p>
+            <p class="product-price">R$ 59,99</p>
+        </div>
+        <div class="product-item">
+            <img src="img/modelo.png" alt="Produto 3" class="product-thumb">
+            <p class="product-name">Polo Listrada</p>
+            <p class="product-price">R$ 69,99</p>
+        </div>
+        <div class="product-item">
+            <img src="img/modelo.png" alt="Produto 4" class="product-thumb">
+            <p class="product-name">Camiseta Longline</p>
+            <p class="product-price">R$ 79,99</p>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2024 Minha Loja. Todos os direitos reservados.</p>
+        <p>Endereço: Rua Exemplo, 123 - São Paulo, SP</p>
+        <p>Telefone: (11) 1234-5678</p>
+        <p>Email: contato@minhaloja.com.br</p>
+    </div>
+</footer>
+
+<script src="jquery.js"></script>
+
+<!-- jQuery script para navegação entre abas e slider de imagens -->
+<script>
+$(document).ready(function(){
+    // Alternar abas
+    $(".tab-button").click(function(){
+        var tab_id = $(this).attr("data-tab");
+
+        $(".tab-button").removeClass("active");
+        $(".tab-content").hide();
+
+        $(this).addClass("active");
+        $("#" + tab_id).show();
+    });
+
+    // Slider de imagens
+    let currentSlide = 0;
+    const slides = $(".product-image");
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+        slides.hide();
+        slides.eq(index).show();
+    }
+
+    $(".next").click(function(){
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+    });
+
+    $(".prev").click(function(){
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        showSlide(currentSlide);
+    });
+
+    // Inicializa o slider com a primeira imagem
+    showSlide(currentSlide);
+});
+
+ // Alterna o menu mobile ao clicar no botão
+    $("#mobile-menu-btn").click(function() {
+        $(".mobile-menu").slideToggle(); // Exibe ou oculta o menu mobile
+    });
+
+    // Função para exibir ou ocultar menus dependendo da largura da tela
+    function toggleMenu() {
+        if ($(window).width() <= 900) {
+            $(".mobile-menu").hide(); // Esconde o menu mobile inicialmente
+            $(".desktop-menu").hide(); // Esconde o menu desktop
+            $("#mobile-menu-btn").show(); // Mostra o botão do menu mobile
+        } else {
+            $(".mobile-menu").hide(); // Esconde o menu mobile
+            $(".desktop-menu").show(); // Mostra o menu desktop
+            $("#mobile-menu-btn").hide(); // Esconde o botão do menu mobile
+        }
+    }
+
+    // Chama a função ao carregar a página e ao redimensionar
+    toggleMenu();
+    $(window).resize(function() {
+        toggleMenu();
+    });
+
+</script>
+
+</body>
+</html>

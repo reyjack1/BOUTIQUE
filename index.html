@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Página</title>
+    <link rel="icon" href="img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="style-index.css">
+    <script src="jquery.js"></script>
+    <meta name="description" content="Uma breve descrição da minha página">
+    <meta name="keywords" content="palavras-chave, separadas, por, vírgulas">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-left">
+        <input type="text" placeholder="Pesquisar..." id="search-input">
+    </div>
+    <div class="nav-center">
+        <ul class="nav-menu desktop-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="checkout.html">Carrinho</a></li>
+            <li><a href="quem-somos.html">Quem somos?</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+        <button id="mobile-menu-btn" class="mobile-menu-btn">&#9776;</button>
+        <ul class="nav-menu mobile-menu">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="checkout.html">Carrinho</a></li>
+            <li><a href="quem-somos.php">Quem somos?</a></li>
+            <li><a href="contato.php">Contato</a></li>
+        </ul>
+    </div>
+    <div class="nav-right">
+        <a href="checkout.html" class="cart-button">
+            <img style="width:45px; height: 45px;" src="img/sacola.png">
+        </a>
+    </div>
+</nav>
+
+<div class="aside-section-container">
+    <div class="aside-container">
+        <aside class="ads">
+            <div class="ad-window">
+                <img src="img/modelo.png" alt="Anúncio 1">
+            </div>
+            <div class="ad-window">
+                <img src="img/modelo.png" alt="Anúncio 2">
+            </div>
+        </aside>
+
+        <aside class="highlights">
+            <div class="highlight-item">
+                <img src="img/modelo.png" alt="Produto 1" class="highlight-image">
+                <span class="highlight-name">Produto 1</span>
+                <button class="highlight-button">Entrar</button>
+            </div>
+            <div class="highlight-item">
+                <img src="img/modelo.png" alt="Produto 2" class="highlight-image">
+                <span class="highlight-name">Produto 2</span>
+                <button class="highlight-button">Entrar</button>
+            </div>
+        </aside>
+    </div>
+
+    <section class="right-section">
+        <div class="logo-container">
+            <img src="img/logo.png" alt="Logo">
+        </div>
+        <div class="menu-container">
+            <ul>
+                <li><a href="#option1">Masculino</a></li>
+                <li><a href="#option2">Feminino</a></li>
+                <li><a href="#option3">Acessórios</a></li>
+                <li><a href="#option4">Calçados</a></li>
+            </ul>
+        </div>
+        <div class="content-container">
+            <div class="product-grid">
+                <div class="product-item">
+                    <a href="produto.html">
+                        <img src="img/modelo.png" alt="Produto 1" class="product-image">
+                        <p class="product-description">Descrição do Produto 1</p>
+                    </a>
+                    <button class="add-to-cart-button">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product-item">
+                    <a href="produto.html">
+                        <img src="img/modelo.png" alt="Produto 1" class="product-image">
+                        <p class="product-description">Descrição do Produto 1</p>
+                    </a>
+                    <button class="add-to-cart-button">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product-item">
+                    <a href="produto.html">
+                        <img src="img/modelo.png" alt="Produto 1" class="product-image">
+                        <p class="product-description">Descrição do Produto 1</p>
+                    </a>
+                    <button class="add-to-cart-button">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product-item">
+                    <a href="produto.html">
+                        <img src="img/modelo.png" alt="Produto 1" class="product-image">
+                        <p class="product-description">Descrição do Produto 1</p>
+                    </a>
+                    <button class="add-to-cart-button">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2024 Minha Loja. Todos os direitos reservados.</p>
+        <p>Endereço: Rua Exemplo, 123 - São Paulo, SP</p>
+        <p>Telefone: (11) 1234-5678</p>
+        <p>Email: contato@minhaloja.com.br</p>
+    </div>
+</footer>
+
+<script src="jquery.js"></script>
+<script>
+$(document).ready(function() {
+    // Alterna o menu mobile ao clicar no botão
+    $("#mobile-menu-btn").click(function() {
+        $(".mobile-menu").slideToggle(); // Exibir ou ocultar o menu ao clicar no ícone
+    });
+
+    // Mostrar o botão do menu mobile apenas em telas menores que 1200px
+    $(window).resize(function() {
+        if ($(window).width() > 1200) {
+            $(".desktop-menu").show(); // Mostrar o menu desktop em telas grandes
+            $(".mobile-menu-btn").hide(); // Esconder o botão do menu mobile
+            $(".mobile-menu").hide(); // Esconder o menu mobile
+        } else {
+            $(".desktop-menu").hide(); // Esconder o menu desktop em telas pequenas
+            $(".mobile-menu-btn").show(); // Mostrar o botão do menu mobile
+        }
+    }).trigger('resize');
+});
+</script>
+</body>
+</html>

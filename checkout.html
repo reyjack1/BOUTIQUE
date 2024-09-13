@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Página</title>
+    <link rel="icon" href="img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="checkout.css">
+    <script src="jquery.js"></script>
+    <meta name="description" content="Uma breve descrição da minha página">
+    <meta name="keywords" content="palavras-chave, separadas, por, vírgulas">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-left">
+        <input type="text" placeholder="Pesquisar..." id="search-input">
+    </div>
+    <div class="nav-center">
+        <ul class="nav-menu desktop-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="checkout.html">Carrinho</a></li>
+            <li><a href="quem-somos.html">Quem somos?</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+        <button id="mobile-menu-btn" class="mobile-menu-btn">&#9776;</button>
+        <ul class="nav-menu mobile-menu">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="checkout.html">Carrinho</a></li>
+            <li><a href="quem-somos.php">Quem somos?</a></li>
+            <li><a href="contato.php">Contato</a></li>
+        </ul>
+    </div>
+    <div class="nav-right">
+        <a href="checkout.html" class="cart-button">
+            <img style="width:45px; height: 45px;" src="img/sacola.png" alt="Carrinho">
+        </a>
+    </div>
+</nav>
+
+<div class="checkout-section-container">
+    <div class="checkout-container">
+        <section class="checkout-details">
+            <h2>Resumo do Carrinho</h2>
+            <div class="cart-items">
+                <div class="cart-item">
+                    <img src="img/modelo.png" alt="Produto 1" class="cart-item-image">
+                    <div class="cart-item-details">
+                        <p>Produto 1</p>
+                        <p>Preço: R$ 50,00</p>
+                        <p>Quantidade: 2</p>
+                    </div>
+                    <button class="remove-button">Remover</button>
+                </div>
+                <div class="cart-item">
+                    <img src="img/modelo.png" alt="Produto 2" class="cart-item-image">
+                    <div class="cart-item-details">
+                        <p>Produto 2</p>
+                        <p>Preço: R$ 100,00</p>
+                        <p>Quantidade: 1</p>
+                    </div>
+                    <button class="remove-button">Remover</button>
+                </div>
+            </div>
+            <div class="cart-total">
+                <p>Total: R$ 200,00</p>
+            </div>
+            <button class="checkout-button">Finalizar Compra</button>
+        </section>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2024 Minha Loja. Todos os direitos reservados.</p>
+        <p>Endereço: Rua Exemplo, 123 - São Paulo, SP</p>
+        <p>Telefone: (11) 1234-5678</p>
+        <p>Email: contato@minhaloja.com.br</p>
+    </div>
+</footer>
+
+<script src="jquery.js"></script>
+<script>
+$(document).ready(function() {
+    $("#mobile-menu-btn").click(function() {
+        $(".mobile-menu").slideToggle();
+    });
+
+    $(window).resize(function() {
+        if ($(window).width() > 1200) {
+            $(".desktop-menu").show();
+            $(".mobile-menu-btn").hide();
+            $(".mobile-menu").hide();
+        } else {
+            $(".desktop-menu").hide();
+            $(".mobile-menu-btn").show();
+        }
+    }).trigger('resize');
+});
+</script>
+
+</body>
+</html>

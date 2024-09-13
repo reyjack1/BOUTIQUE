@@ -1,0 +1,146 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nome = trim($_POST['nome']);
+    $email = trim($_POST['email']);
+    $celular = trim($_POST['celular']);
+    $mensagem = trim($_POST['mensagem']);
+
+    $errors = [];
+    if (empty($nome)) {
+        $errors[] = "Por favor, preencha o nome.";
+    }
+    if (empty($email)) {
+        $errors[] = "Por favor, preencha o email.";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "Por favor, informe um email válido.";
+    }
+    if (empty($celular)) {
+        $errors[] = "Por favor, preencha o celular.";
+    } elseif (!preg_match('/^\+?\d{10,15}$/', $celular)) {
+        $errors[] = "Por favor, informe um celular válido.";
+    }
+    if (empty($mensagem)) {
+        $errors[] = "Por favor, escreva uma mensagem.";
+    }
+
+    if (empty($errors)) {
+        $arquivo = fopen("contatos.txt", "a+");
+        fwrite($arquivo, "Nome: $nome\nEmail: $email\nCelular: $celular\nMensagem: $mensagem\n---\n");
+        fclose($arquivo);
+
+        $success = "Sua mensagem foi enviada com sucesso!";
+        $nome = $email = $celular = $mensagem = '';
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Minha Loja</title>
+    <link rel="stylesheet" type="text/css" href="contato.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="navbar">
+    <div class="nav-left">
+        <input type="text" placeholder="Pesquisar..." id="search-input">
+    </div>
+    <div class="nav-center">
+        <ul class="nav-menu desktop-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="checkout.html">Carrinho</a></li>
+            <li><a href="quem-somos.html">Quem somos?</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+        <button id="mobile-menu-btn" class="mobile-menu-btn">&#9776;</button>
+        <ul class="nav-menu mobile-menu">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="checkout.html">Carrinho</a></li>
+            <li><a href="quem-somos.php">Quem somos?</a></li>
+            <li><a href="contato.php">Contato</a></li>
+        </ul>
+    </div>
+    <div class="nav-right">
+        <a href="checkout.html" class="cart-button">
+            <img style="width:45px; height: 45px;" src="img/sacola.png" alt="Carrinho">
+        </a>
+    </div>
+</nav>
+
+<!-- Seção de Contato -->
+<section class="contact-section">
+    <h2>Entre em Contato Conosco</h2>
+
+    <?php if (!empty($success)): ?>
+        <p class="success-msg"><?php echo $success; ?></p>
+    <?php endif; ?>
+
+    <?php if (!empty($errors)): ?>
+        <ul class="error-msg">
+            <?php foreach ($errors as $error): ?>
+                <li><?php echo htmlspecialchars($error); ?></li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
+
+    <form id="contact-form" method="POST" action="contato.php">
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" value="<?php echo htmlspecialchars($nome ?? ''); ?>" placeholder="Seu nome">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($email ?? ''); ?>" placeholder="Seu email">
+        </div>
+
+        <div class="form-group">
+            <label for="celular">Celular:</label>
+            <input type="text" id="celular" name="celular" value="<?php echo htmlspecialchars($celular ?? ''); ?>" placeholder="Seu celular">
+        </div>
+
+        <div class="form-group">
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem"><?php echo htmlspecialchars($mensagem ?? ''); ?></textarea>
+        </div>
+
+        <button type="submit" class="submit-button">Enviar</button>
+    </form>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2024 Minha Loja. Todos os direitos reservados.</p>
+        <p>Endereço: Rua Exemplo, 123 - São Paulo, SP</p>
+        <p>Telefone: (11) 1234-5678</p>
+        <p>Email: contato@minhaloja.com.br</p>
+    </div>
+</footer>
+
+<script>
+$(document).ready(function() {
+    $("#mobile-menu-btn").click(function() {
+        $(".mobile-menu").slideToggle();
+    });
+
+    $(window).resize(function() {
+        if ($(window).width() > 1200) {
+            $(".desktop-menu").show();
+            $(".mobile-menu-btn").hide();
+            $(".mobile-menu").hide();
+        } else {
+            $(".desktop-menu").hide();
+            $(".mobile-menu-btn").show();
+        }
+    }).trigger('resize');
+});
+</script>
+
+</body>
+</html>

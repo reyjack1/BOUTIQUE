@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem Somos - Minha Loja</title>
+    <link rel="icon" href="img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="quem-somos.css">
+    <script src="jquery.js"></script>
+    <meta name="description" content="Saiba mais sobre nossa loja e nosso fundador.">
+    <meta name="keywords" content="boutique, quem somos, fundador, história">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-left">
+        <input type="text" placeholder="Pesquisar..." id="search-input">
+    </div>
+    <div class="nav-center">
+        <ul class="nav-menu desktop-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="checkout.html">Carrinho</a></li>
+            <li><a href="quem-somos.html">Quem somos?</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+        <button id="mobile-menu-btn" class="mobile-menu-btn">&#9776;</button> <!-- Ícone de menu no mobile -->
+        <ul class="nav-menu mobile-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="checkout.html">Carrinho</a></li>
+            <li><a href="quem-somos.html">Quem somos?</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </div>
+    <div class="nav-right">
+        <a href="checkout.html" class="cart-button">
+            <img style="width: 40px; height: 40px;" src="img/sacola.png" alt="Carrinho">
+        </a>
+    </div>
+</nav>
+
+<!-- Seção Quem Somos -->
+<section class="about-section">
+    <div class="founder-container">
+        <img src="img/dono.png" alt="Foto do Fundador" class="founder-image">
+        <h2>João Silva</h2>
+        <p>Fundador e Diretor Criativo</p>
+        <p>João Silva sempre sonhou em criar uma boutique que combinasse estilo e qualidade. Com mais de 20 anos de experiência no mercado da moda, ele transformou sua paixão em uma marca reconhecida pela excelência e pelo bom gosto. Sob sua liderança, nossa loja se tornou referência no setor, trazendo sempre as últimas tendências e um atendimento de primeira linha.</p>
+    </div>
+
+    <div class="about-text">
+        <h3>Sobre Nós</h3>
+        <p>Bem-vindo(a) à nossa boutique, onde a moda encontra qualidade e exclusividade. Nossa missão é proporcionar a você uma experiência de compra única, oferecendo peças cuidadosamente selecionadas e confeccionadas com os melhores materiais disponíveis no mercado. Cada detalhe é pensado para que você encontre estilo, conforto e elegância em cada item.
+
+Nossa empresa se destaca pela dedicação em oferecer roupas que não apenas acompanham as tendências, mas também realçam a individualidade e o bom gosto de quem as veste. Trabalhamos com marcas renomadas e designers exclusivos, garantindo que cada coleção traga o que há de melhor na moda contemporânea.
+
+Na nossa boutique, acreditamos que a roupa vai além do vestuário — é uma expressão de personalidade e confiança. Por isso, cada peça que chega até você passa por um rigoroso controle de qualidade, assegurando que todos os produtos atendam aos nossos padrões de excelência.
+
+Nosso compromisso é com você, que valoriza qualidade e estilo em um só lugar. Seja bem-vindo(a) à nossa boutique e descubra um novo conceito em moda.</p>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2024 Minha Loja. Todos os direitos reservados.</p>
+        <p>Endereço: Rua Exemplo, 123 - São Paulo, SP</p>
+        <p>Telefone: (11) 1234-5678</p>
+        <p>Email: contato@minhaloja.com.br</p>
+    </div>
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2024 Minha Loja. Todos os direitos reservados.</p>
+        <p>Endereço: Rua Exemplo, 123 - São Paulo, SP</p>
+        <p>Telefone: (11) 1234-5678</p>
+        <p>Email: contato@minhaloja.com.br</p>
+    </div>
+</footer>
+
+<script src="jquery.js"></script>
+<script>
+$(document).ready(function() {
+    // Alterna o menu mobile ao clicar no botão
+    $("#mobile-menu-btn").click(function() {
+        $(".mobile-menu").slideToggle(); // Exibir ou ocultar o menu ao clicar no ícone
+    });
+
+    // Mostrar o botão do menu mobile apenas em telas menores que 1200px
+    $(window).resize(function() {
+        if ($(window).width() > 1200) {
+            $(".desktop-menu").show(); // Mostrar o menu desktop em telas grandes
+            $(".mobile-menu-btn").hide(); // Esconder o botão do menu mobile
+            $(".mobile-menu").hide(); // Esconder o menu mobile
+        } else {
+            $(".desktop-menu").hide(); // Esconder o menu desktop em telas pequenas
+            $(".mobile-menu-btn").show(); // Mostrar o botão do menu mobile
+        }
+    }).trigger('resize');
+});
+</script>
+</body>
+
+</html>
